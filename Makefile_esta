@@ -1,0 +1,21 @@
+FFLAGS=  -O3 -r8 -w
+EXENAME= stad
+FC= ifort 
+
+OBJS=\
+esta_mod2.o\
+esta_alloc2.o\
+esta1.o
+
+$(EXENAME):  $(OBJS)
+	$(FC)  $(OBJS) $(FFLAGS) -o $(EXENAME)
+esta_mod2.o: esta_mod2.f90
+	$(FC) $(FFLAGS) -c $*.f90
+esta_alloc2.o: esta_alloc2.f90
+	$(FC) $(FFLAGS) -c $*.f90
+esta1.o: esta1.f90
+	$(FC) $(FFLAGS) -c $*.f90
+CLEAN :
+	/bin/rm *.o
+clean :
+	/bin/rm *.o
